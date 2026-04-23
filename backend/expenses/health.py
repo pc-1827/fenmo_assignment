@@ -3,8 +3,10 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.db import connection
 from django.db.utils import OperationalError
+from django.views.decorators.csrf import csrf_exempt
 
 
+@csrf_exempt
 @api_view(['GET'])
 def health_check(request):
     """
